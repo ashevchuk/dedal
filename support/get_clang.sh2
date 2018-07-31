@@ -1,0 +1,9 @@
+#!/bin/bash
+
+export PATH=/root/newapi/api_server/dedal/toolchains/bin:$PATH
+#export LD_LIBRARY_PATH=/root/newapi/api_server/dedal/toolchains/lib64:/root/newapi/api_server/dedal/toolchains/lib:$LD_LIBRARY_PATH
+#export LD_RUN_PATH=/root/newapi/api_server/dedal/toolchains/lib/lib64:/root/newapi/api_server/dedal/toolchains/lib:$LD_RUN_PATH
+export LD_LIBRARY_PATH=/root/newapi/api_server/dedal/toolchains/lib64:$LD_LIBRARY_PATH
+export LD_RUN_PATH=/root/newapi/api_server/dedal/toolchains/lib/lib64:$LD_RUN_PATH
+
+CC=/root/newapi/api_server/dedal/toolchains/bin/clang CXX=/root/newapi/api_server/dedal/toolchains/bin/clang++  ./install-clang -b Release -C -c -j 8 /root/newapi/api_server/dedal/toolchains

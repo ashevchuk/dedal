@@ -1,0 +1,19 @@
+#!/bin/bash
+
+cd /root/newapi/api_server/dedal/vendor/boost
+
+export LD_LIBRARY_PATH=/root/newapi/api_server/dedal/toolchains/lib/../lib64:$LD_LIBRARY_PATH
+export LD_RUN_PATH=/root/newapi/api_server/dedal/toolchains/lib/../lib64:$LD_RUN_PATH
+
+export CC=/root/newapi/api_server/dedal/toolchains/bin/clang
+export CXX=/root/newapi/api_server/dedal/toolchains/bin/clang++
+
+export PATH=/root/newapi/api_server/dedal/toolchains/bin:$PATH
+
+CC=/root/newapi/api_server/dedal/toolchains/bin/clang CXX=/root/newapi/api_server/dedal/toolchains/bin/clang++ /root/newapi/api_server/dedal/vendor/boost/bootstrap.sh --prefix=/root/newapi/api_server/dedal/obj/lib --with-toolset=clang
+CC=/root/newapi/api_server/dedal/toolchains/bin/clang CXX=/root/newapi/api_server/dedal/toolchains/bin/clang++ /root/newapi/api_server/dedal/vendor/boost/b2 --prefix=/root/newapi/api_server/dedal/obj/lib
+
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake .. -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,/root/newapi/api_server/dedal/toolchains/lib64 -L/root/newapi/api_server/dedal/toolchains/lib64"
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake ../projects/libcxxabi -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,/root/newapi/api_server/dedal/toolchains/lib64 -L/root/newapi/api_server/dedal/toolchains/lib64"
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake -j $(nproc) --build ..
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake -DCMAKE_INSTALL_PREFIX=/root/newapi/api_server/dedal/toolchains -P cmake_install.cmake

@@ -1,0 +1,10 @@
+#!/bin/bash
+
+cd gcc-4.8.2
+./contrib/download_prerequisites
+cd ..
+mkdir gcc-4.8.2-build
+cd gcc-4.8.2-build
+$PWD/../gcc-4.8.2/configure --prefix=/root/newapi/api_server/dedal/toolchains --enable-languages=c,c++
+make -j$(nproc)
+make install

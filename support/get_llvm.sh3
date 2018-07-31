@@ -1,0 +1,13 @@
+#!/bin/bash
+
+mkdir llvm/build2
+
+cd llvm/build2
+
+export LD_LIBRARY_PATH=/root/newapi/api_server/dedal/toolchains/lib/../lib64:$LD_LIBRARY_PATH
+export LD_RUN_PATH=/root/newapi/api_server/dedal/toolchains/lib/../lib64:$LD_RUN_PATH
+
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake .. -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,/root/newapi/api_server/dedal/toolchains/lib64 -L/root/newapi/api_server/dedal/toolchains/lib64"
+CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake ../projects/libcxxabi -DCMAKE_CXX_LINK_FLAGS="-Wl,-rpath,/root/newapi/api_server/dedal/toolchains/lib64 -L/root/newapi/api_server/dedal/toolchains/lib64"
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake -j $(nproc) --build ..
+#CC=/root/newapi/api_server/dedal/toolchains/bin/gcc CXX=/root/newapi/api_server/dedal/toolchains/bin/g++ /root/newapi/api_server/dedal/toolchains/bin/cmake -DCMAKE_INSTALL_PREFIX=/root/newapi/api_server/dedal/toolchains -P cmake_install.cmake
